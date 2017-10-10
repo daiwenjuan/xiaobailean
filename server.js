@@ -12,13 +12,15 @@ new WebpackDevServer(webpack(config), {
   hot: true,
   compress: true,
   historyApiFallback: true,
-  publicPath: '/build',
+  inline: true,
+  publicPath: '/build/',
   watchOptions: {
     ignore: /node_modules/
   },
   stats: {
     modules: false,
-    chunks: false
+    chunks: false,
+    colors: true
   },
   setup(app){
     app.use(errorOverlayMiddleware())

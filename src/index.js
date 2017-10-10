@@ -87,7 +87,7 @@ class App extends React.Component {
     const {actions, text} = this.props
     return (
       <div>
-        <div>Hello Webpack</div>
+        <div>Hello WebPack</div>
         <Hello actions={actions} text={text}/>
         <Change actions={actions}/>
       </div>
