@@ -11,7 +11,6 @@ common.output.publicPath = './build/'
 module.exports = merge(common, {
   devtool: 'source-map',
   plugins: [
-    new UglifyJSPlugin(),
     new ExtractTextPlugin({
       filename: 'styles.css'
     }),
