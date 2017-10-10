@@ -1,5 +1,6 @@
 *.xml
 *.iml
+build
 .idea/
 node_modules
 
