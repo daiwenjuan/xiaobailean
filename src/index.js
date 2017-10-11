@@ -95,21 +95,30 @@ class App extends React.Component {
   }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps (state, props) {
   return {text: state.text}
 }
 
 function mapDispatchToProps (dispatch) {
+  debugger
   return {
     actions: bindActionCreators({changeText: changeText, buttonClick: buttonClick}, dispatch)
   }
 }
+//const VisibleTodoList = connect(
+//  mapStateToProps,
+//  mapDispatchToProps
+//)(TodoList)
+//上面代码中，connect方法接受两个参数：mapStateToProps和mapDispatchToProps。
+// 它们定义了 UI 组件的业务逻辑。
+// 前者负责输入逻辑，即将state映射到 UI 组件的参数（props），
+// 后者负责输出逻辑，即将用户对 UI 组件的操作映射成 Action。
 
 App = connect(mapStateToProps, mapDispatchToProps)(App)
 
 render(
   <Provider store={store}>
-    <App />
+    <App test="aaa"/>
   </Provider>,
   document.getElementById('root')
 )
