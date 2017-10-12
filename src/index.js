@@ -2,10 +2,17 @@
  *  Created by daiwenjuan on 17/10/9 上午11:30.
  */
 import React from 'react'
-import ReactDOM from 'react-dom'
-import Login from './plugins/account/Login'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import Login from './plugins/account/login'
+import { test } from './plugins/account/account.reducer'
 
-ReactDOM.render(
-  <Login/>,
+let store = createStore(test)
+
+render(
+  <Provider store={store}>
+    <Login/>
+  </Provider>,
   document.getElementById('root')
 )
