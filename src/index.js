@@ -4,11 +4,13 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, combineReducers } from 'redux'
 import Login from './plugins/account/login'
-import { test } from './plugins/account/account.reducer'
+import rootReduces from './frame/Reducer'
 
-let store = createStore(test)
+const reducers = combineReducers(...rootReduces)
+
+let store = createStore(reducers)
 
 render(
   <Provider store={store}>
