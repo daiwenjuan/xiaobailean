@@ -3,7 +3,7 @@
  */
 import { connect } from 'react-redux'
 
-const EnhanceConnect = (mapStateToProps, mapDispatchToProps) => (Component) => {
-  return connect(mapStateToProps, mapDispatchToProps)(Component)
+const EnhanceConnect = (mapStateToProps, actions) => (Component) => {
+  return connect(mapStateToProps, actions)(Component)
 }
 export default EnhanceConnect

@@ -10,9 +10,7 @@ import Context from './frame/Context'
 
 const context = new Context()
 context.mount(require('./plugins/account'))
-debugger
 const plugins = context.getPlugins()
-//const _reducers = plugins.map(plugin => plugin.getReducer().getReducers())
 const _reducers = {}
 plugins.map(plugin => {
   let pluginReducer = plugin.getPluginReducer()
@@ -21,12 +19,10 @@ plugins.map(plugin => {
     _reducers[reducer.name] = reducer
   })
 })
-console.log('+==================')
-console.log(_reducers)
-
 const reducers = combineReducers(_reducers)
 
 let store = createStore(reducers)
+context.setStore(store)
 
 render(
   <Provider store={store}>

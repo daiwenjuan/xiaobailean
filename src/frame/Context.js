@@ -4,6 +4,7 @@
 export default  class Context {
   constructor () {
     this._plugins = []
+    this.store = {}
   }
 
   mount (plugin) {
