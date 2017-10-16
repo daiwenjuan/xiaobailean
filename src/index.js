@@ -6,9 +6,25 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, combineReducers } from 'redux'
 import Login from './plugins/account/login'
-import rootReduces from './frame/Reducer'
+import Context from './frame/Context'
 
-const reducers = combineReducers(...rootReduces)
+const context = new Context()
+context.mount(require('./plugins/account'))
+debugger
+const plugins = context.getPlugins()
+//const _reducers = plugins.map(plugin => plugin.getReducer().getReducers())
+const _reducers = {}
+plugins.map(plugin => {
+  let pluginReducer = plugin.getPluginReducer()
+  let reducers = pluginReducer.getReducers()
+  reducers.map(reducer => {
+    _reducers[reducer.name] = reducer
+  })
+})
+console.log('+==================')
+console.log(_reducers)
+
+const reducers = combineReducers(_reducers)
 
 let store = createStore(reducers)
 
