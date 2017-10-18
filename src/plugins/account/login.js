@@ -5,7 +5,6 @@ import React from 'react'
 import styles from './login.module.less'
 import EnhanceConnect from '../../frame/EnhanceConnect'
 import { test } from './account.action'
-const context = require('../../frame/Context')
 
 @EnhanceConnect((state) => {
   return {text: state.text}
@@ -17,13 +16,16 @@ export default class Login extends React.Component {
   }
 
   handleClick () {
-    context.getStore()
+    let {test} = this.props
+    test()
   }
 
   render () {
+    let {text} = this.props
+    console.log(this.props)
     return (
       <div className={styles['wrapper']}>
-        <div onClick={::this.handleClick}>Login lean</div>
+        <div onClick={::this.handleClick}>{text + 'sdfds'}</div>
       </div>
     )
   }

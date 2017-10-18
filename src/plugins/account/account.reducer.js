@@ -11,8 +11,10 @@ const reducer = new Reducer(key.ID, {
 reducer.handleAction(key.Click_Change, test)
 
 function test (state, action) {
+  debugger
   if (action.type === 'test') {
-    return {...state, action}
+    let text = action.payload.text || state.text
+    return {...state, text: action.payload.text}
   }
   return null
 }

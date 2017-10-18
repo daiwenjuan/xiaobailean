@@ -13,16 +13,13 @@ context.mount(require('./plugins/account'))
 const plugins = context.getPlugins()
 const _reducers = {}
 plugins.map(plugin => {
-  let pluginReducer = plugin.getPluginReducer()
-  let reducers = pluginReducer.getReducers()
-  reducers.map(reducer => {
-    _reducers[reducer.name] = reducer
-  })
+  let {id, reducer} = plugin
+  _reducers[id] = reducer.exports
 })
+
 const reducers = combineReducers(_reducers)
 
 let store = createStore(reducers)
-context.setStore(store)
 
 render(
   <Provider store={store}>

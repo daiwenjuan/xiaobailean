@@ -4,15 +4,19 @@
 export default class Plugin {
 
   constructor (pluginId) {
-    this.pluginId = pluginId
+    this._id = pluginId
     this._reducer = null
   }
 
-  setPluginReducer (reducer) {
-    this._reducer = reducer
+  get reducer () {
+    return this._reducer
   }
 
-  getPluginReducer () {
-    return this._reducer
+  get id () {
+    return this._id
+  }
+
+  set reducer (reducer) {
+    this._reducer = reducer
   }
 }

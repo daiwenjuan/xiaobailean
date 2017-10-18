@@ -1,22 +1,32 @@
 export default class Reducer {
 
   constructor (id, initDefault) {
-    this._reducerId = id
-    this.initDefault = initDefault
-    this.reducersMap = {}
-    this.reducers = []
+    this._id = id
+    this._initDefault = initDefault || {text: 'test'}
+    this._reducersMap = {}
+    this._reducers = []
   }
 
-  getId () {
-    return this._reducerId
+  get Id () {
+    return this._id
   }
 
-  getReducers () {
-    return this.reducers
+  get reducer () {
+    return this._reducers
+  }
+
+  get exports () {
+    return (state = this._initDefault, action) => {
+      let {type} = action
+      if (!!this._reducersMap[type]) {
+        this._reducersMap[type].forEach(handle => (state = handle(state, action) || state))
+      }
+      return state
+    }
   }
 
   handleAction (actionkey, fnAction) {
-    this.reducersMap[actionkey] = fnAction
-    this.reducers.push(fnAction)
+    this._reducersMap[actionkey] = fnAction
+    this._reducers.push(fnAction)
   }
 }

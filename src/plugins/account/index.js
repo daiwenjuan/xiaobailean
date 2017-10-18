@@ -4,5 +4,5 @@
 import Plugin from '../../frame/Plugin'
 import key from './key'
 const plugin = new Plugin(key.ID)
-plugin.setPluginReducer(require('./account.reducer'))
+plugin.reducer = require('./account.reducer')
 module.exports = plugin
