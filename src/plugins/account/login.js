@@ -7,7 +7,7 @@ import EnhanceConnect from '../../frame/EnhanceConnect'
 import { test } from './account.action'
 
 @EnhanceConnect((state) => {
-  return {text: state.text}
+  return {text: state['@account'].text}
 }, {test})
 export default class Login extends React.Component {
 
@@ -22,10 +22,9 @@ export default class Login extends React.Component {
 
   render () {
     let {text} = this.props
-    console.log(this.props)
     return (
       <div className={styles['wrapper']}>
-        <div onClick={::this.handleClick}>{text + 'sdfds'}</div>
+        <div onClick={::this.handleClick}>{text}</div>
       </div>
     )
   }

@@ -12,6 +12,7 @@ const context = new Context()
 context.mount(require('./plugins/account'))
 const plugins = context.getPlugins()
 const _reducers = {}
+
 plugins.map(plugin => {
   let {id, reducer} = plugin
   _reducers[id] = reducer.exports

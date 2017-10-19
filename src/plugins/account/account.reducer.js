@@ -8,14 +8,9 @@ const reducer = new Reducer(key.ID, {
   text: 'Hello Webpack'
 })
 
-reducer.handleAction(key.Click_Change, test)
+reducer.handleAction(key.Click_Change, (state, action) => {
+  let text = action.payload.text
+  return {...state, text: text}
+})
 
-function test (state, action) {
-  debugger
-  if (action.type === 'test') {
-    let text = action.payload.text || state.text
-    return {...state, text: action.payload.text}
-  }
-  return null
-}
 module.exports = reducer
