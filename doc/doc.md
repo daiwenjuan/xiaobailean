@@ -9,3 +9,6 @@ react-router-redux 是将react-router 和 redux 集成到一起的库，让你�
 例如，react-router 中跳转需要调用 router.push(path)，集成了react-router-redux 你就可以通过dispatch的方式使用router，
 例如 跳转可以这样做 store.dispatch(push(url))。本质上，是把react-router自己维护的状态，
 例如location、history、path等等，也交给redux管理。一般情况下，是没有必要使用这个库的
+
+router文档
+http://react-guide.github.io/react-router-cn/docs/Introduction.html
