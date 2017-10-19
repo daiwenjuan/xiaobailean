@@ -4,27 +4,34 @@
 import React from 'react'
 import styles from './login.module.less'
 import EnhanceConnect from '../../frame/EnhanceConnect'
-import { test } from './account.action'
+import { test1, test2 } from './account.action'
 
 @EnhanceConnect((state) => {
-  return {text: state['@account'].text}
-}, {test})
+  return {
+    text1: state['@account'].text1,
+    text2: state['@account'].text2
+  }
+}, {test1, test2})
 export default class Login extends React.Component {
 
   constructor (props) {
     super(props)
   }
 
-  handleClick () {
-    let {test} = this.props
-    test()
+  handleClick1 () {
+    this.props.test1()
+  }
+
+  handleClick2 () {
+    this.props.test2()
   }
 
   render () {
-    let {text} = this.props
+    let {text1, text2} = this.props
     return (
       <div className={styles['wrapper']}>
-        <div onClick={::this.handleClick}>{text}</div>
+        <div onClick={::this.handleClick1}>{text1}</div>
+        <div onClick={::this.handleClick2}>{text2}</div>
       </div>
     )
   }

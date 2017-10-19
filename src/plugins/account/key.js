@@ -5,5 +5,6 @@ const ID = '@account'
 
 module.exports = {
   ID,
-  Click_Change: `${ID}Click_Change`
+  CLICK1: `${ID}CLICK1`,
+  CLICK2: `${ID}CLICK2`,
 }

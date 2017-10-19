@@ -10,6 +10,7 @@ import Context from './frame/Context'
 
 const context = new Context()
 context.mount(require('./plugins/account'))
+
 const plugins = context.getPlugins()
 const _reducers = {}
 
