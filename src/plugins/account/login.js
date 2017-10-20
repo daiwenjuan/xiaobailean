@@ -1,7 +1,7 @@
 /**
  *  Created by daiwenjuan on 2017/10/12 下午5:20.
  */
-import React from 'react'
+import React, { Component } from 'react'
 import styles from './login.module.less'
 import EnhanceConnect from '../../frame/EnhanceConnect'
 import { test1, test2 } from './account.action'
@@ -12,7 +12,7 @@ import { test1, test2 } from './account.action'
     text2: state['@account'].text2
   }
 }, {test1, test2})
-export default class Login extends React.Component {
+export default class Login extends Component {
 
   constructor (props) {
     super(props)
