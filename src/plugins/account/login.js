@@ -8,26 +8,26 @@ import { test1, test2 } from './account.action'
 
 @EnhanceConnect((state) => {
   return {
-    text1: state['@account'].text1,
-    text2: state['@account'].text2
+    text1 : state['@account'].text1,
+    text2 : state['@account'].text2
   }
-}, {test1, test2})
+}, { test1, test2 })
 export default class Login extends Component {
 
-  constructor (props) {
+  constructor(props) {
     super(props)
   }
 
-  handleClick1 () {
+  handleClick1() {
     this.props.test1()
   }
 
-  handleClick2 () {
+  handleClick2() {
     this.props.test2()
   }
 
-  render () {
-    let {text1, text2} = this.props
+  render() {
+    let { text1, text2 } = this.props
     return (
       <div className={styles['wrapper']}>
         <div onClick={::this.handleClick1}>{text1}</div>

@@ -1,27 +1,50 @@
 /**
- *  Created by daiwenjuan on 17/10/9 上午11:30.
+ *  Created by daiwenjuan on 2017/10/19 下午5:04.
  */
-import React, { Component } from 'react'
-import { Router, Route } from 'react-router-dom'
-import createBrowserHistory from 'history/createBrowserHistory'
-const history = createBrowserHistory()
+import React from 'react'
+import { Provider } from 'react-redux'
+import { createStore, combineReducers } from 'redux'
+import { routerReducer } from 'react-router-redux'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Context from './frame/Context'
+import Login from './plugins/account/login'
 
-import TestIndex from './test/testIndex'
-import Test0 from './test/test0'
-import Test1 from './test/test1'
-import Test2 from './test/test2'
-import Test3 from './test/test3'
+const context = new Context()
+context.mount(require('./plugins/account'))
 
-export default class App extends Component {
-  constructor (props) {
-    super(props)
-  }
+const plugins = context.getPlugins()
+const _reducers = {}
 
-  render () {
-    return (<Router history={history}>
-      <Route path='/' component={Test0}>
-        <Route path="/test2" component={Test2}/>
-      </Route>
-    </Router>)
-  }
+plugins.map(plugin => {
+  let { id, reducer } = plugin
+  _reducers[id] = reducer.exports
+})
+
+const reducers = combineReducers({ routing : routerReducer, ..._reducers })
+
+let store = createStore(reducers)
+
+const Home = () => (
+  <div>
+    <h2>Home</h2>
+  </div>
+)
+const About = () => (
+  <div>
+    <h2>About</h2>
+  </div>
+)
+
+const IndexPage = () => {
+  return <Provider store={store}>
+    <Router>
+      <div>
+        <Route exact path='/' component={Home}/>
+        <Route path='/about' component={About}/>
+        <Route path='/login' component={Login}/>
+      </div>
+    </Router>
+  </Provider>
 }
+
+export default IndexPage

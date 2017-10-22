@@ -12,3 +12,12 @@ react-router-redux 是将react-router 和 redux 集成到一起的库，让你�
 
 router文档
 http://react-guide.github.io/react-router-cn/docs/Introduction.html
+
+
+syncHistoryWithStore()
+加强版的history会首先将新的路径通过Redux store传递，然后再通过React Router去更新组件树
+
+ browserHistory, createMemoryHistory, hashHistory 区别
+ 
+ router 按需加载
+ http://blog.csdn.net/sinat_17775997/article/details/70332310
