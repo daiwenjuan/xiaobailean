@@ -17,10 +17,8 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.join(__dirname, 'build'),
-
-    chunkFilename: '[name].js'
-  }
-  ,
+    chunkFilename: '[name].[chunkhash:5].chunk.js'
+  },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
