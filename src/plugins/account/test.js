@@ -10,10 +10,14 @@ export default class Test extends Component {
     super(props)
   }
 
+  handleClick = () => {
+    this.props.history.go(-1)
+  }
+
   render () {
 
     return (
-      <div className={styles['wrapper']}>
+      <div className={styles['wrapper']} onClick={this.handleClick}>
         {'test'}
       </div>
     )

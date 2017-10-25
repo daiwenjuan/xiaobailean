@@ -30,7 +30,8 @@ _routes.unshift({
   exact: true,
   component: Home,
 })
-
+console.log('+=============')
+console.log(_routes)
 const IndexPage = () => {
   return <Provider store={store}>
     <Router>

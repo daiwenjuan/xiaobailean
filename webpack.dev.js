@@ -8,19 +8,19 @@ const webpackServerConfig = require('./webpackServerConfig')
 common.entry.app.unshift('babel-polyfill', 'react-hot-loader/patch', `webpack-dev-server/client?http://${webpackServerConfig.host}:${webpackServerConfig.port}`, 'webpack/hot/only-dev-server')
 common.output.publicPath = '/build/'
 module.exports = merge(common, {
-  devtool : 'inline-source-map',
-  devServer : {
-    contentBase : './dist'
+  devtool: 'source-map',
+  devServer: {
+    contentBase: './dist'
   },
-  module : {
-    rules : [
+  module: {
+    rules: [
       {
-        test : /\.(less|css)$/,
-        use : ['style-loader', 'css-loader?modules', 'less-loader']
+        test: /\.(less|css)$/,
+        use: ['style-loader', 'css-loader?modules', 'less-loader']
       },
     ]
   },
-  plugins : [
+  plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
