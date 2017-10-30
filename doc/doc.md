@@ -28,3 +28,9 @@ http://www.jianshu.com/p/6b816c609669
 
 express
 https://segmentfault.com/a/1190000011090124
+
+ES6学习
+http://es6.ruanyifeng.com/#docs/intro
+
+react 动画
+http://www.cnblogs.com/284628487a/p/6412515.html

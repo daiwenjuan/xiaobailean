@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/daiwenjuan/xiaobailean#readme",
   "dependencies": {
+    "antd": "^2.13.7",
     "babel-runtime": "^6.26.0",
     "bundle-loader": "^0.5.5",
     "clean-webpack-plugin": "^0.1.17",
@@ -28,6 +29,7 @@
     "history": "^4.7.2",
     "html-webpack-plugin": "^2.30.1",
     "react": "^16.0.0",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
