@@ -5,6 +5,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import IndexPage from './index'
+import './styles/app.less'
 
 const render = Component => {
   ReactDOM.render(

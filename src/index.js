@@ -9,6 +9,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Context from './frame/Context'
 const context = new Context()
 context.mount(require('./plugins/account'))
+context.mount(require('./plugins/home'))
+
 const plugins = context.getPlugins()
 const _reducers = {}
 let _routes = []
@@ -19,17 +21,12 @@ plugins.map(plugin => {
 })
 const reducers = combineReducers({routing: routerReducer, ..._reducers})
 let store = createStore(reducers)
-const Home = () => <h2>Home</h2>
+
 const NoMatch = () => (
   <div>
     <h2>NoMatch</h2>
   </div>
 )
-_routes.unshift({
-  path: '/',
-  exact: true,
-  component: Home,
-})
 
 const IndexPage = () => {
   return <Provider store={store}>
