@@ -1,3 +1,6 @@
+webpack 中文文档
+http://www.css88.com/doc/webpack/loaders/bundle-loader/
+
 http://cn.redux.js.org/
 中文文档
 http://www.css88.com/doc/webpack2/concepts/hot-module-replacement/
@@ -34,3 +37,7 @@ http://es6.ruanyifeng.com/#docs/intro
 
 react 动画
 http://www.cnblogs.com/284628487a/p/6412515.html
+
+bundle-loader  实现按需加载，需要的时候才把这个页面加载进来
+懒加载的方式
+https://zhuanlan.zhihu.com/p/24595585?refer=wxyyxc1992
