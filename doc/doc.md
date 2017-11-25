@@ -41,3 +41,14 @@ http://www.cnblogs.com/284628487a/p/6412515.html
 bundle-loader  实现按需加载，需要的时候才把这个页面加载进来
 懒加载的方式
 https://zhuanlan.zhihu.com/p/24595585?refer=wxyyxc1992
+
+部署到服务器
+https://segmentfault.com/q/1010000007320935
+webpack独立打包和缓存处理详解
+http://www.jb51.net/article/110281.htm
+
+node 启动 webpack-dev-server
+https://segmentfault.com/a/1190000006964335
+
+webpack 中间件
+https://www.cnblogs.com/donglegend/p/5821092.html
