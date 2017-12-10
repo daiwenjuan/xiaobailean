@@ -5,7 +5,7 @@ const merge = require('webpack-merge')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const common = require('./webpack.common.js')
-common.output.publicPath = './build/'
+//common.output.publicPath = './build/'
 
 module.exports = merge(common, {
   devtool: 'source-map',
@@ -18,20 +18,14 @@ module.exports = merge(common, {
       debug: false
     }),
     new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
+      sourceMap: false,
       comments: false,
       ie8: true
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
     })
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.(less|css)$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader?modules', 'less-loader']
-        })
-      },
-    ]
-  }
+  ]
 })
