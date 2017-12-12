@@ -52,3 +52,12 @@ https://segmentfault.com/a/1190000006964335
 
 webpack 中间件
 https://www.cnblogs.com/donglegend/p/5821092.html
+
+react-router-dom react-router-redux区别
+在 React 的使用中，我们一般要引入两个包，react 和 react-dom，那么 react-router 和react-router-dom 是不是两个都要引用呢？
+非也，坑就在这里。他们两个只要引用一个就行了，不同之处就是后者比前者多出了 <Link> <BrowserRouter> 这样的 DOM 类组件。
+因此我们只需引用 react-router-dom 这个包就行了。当然，如果搭配 redux ，你还需要使用 react-router-redux。
+http://blog.csdn.net/sinat_17775997/article/details/69218382
+
+webpack 3 打包实战
+https://github.com/fenivana/webpack-in-action
