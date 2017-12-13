@@ -7,13 +7,13 @@ import { createStore, bindActionCreators } from 'redux'
 import { Provider, connect } from 'react-redux'
 
 //action
-function changeText () {
+function changeText() {
   return {
     type: 'CHANGE_TEXT'
   }
 }
 
-function buttonClick () {
+function buttonClick() {
   return {
     type: 'BUTTON_CLICK'
   }
@@ -23,7 +23,7 @@ function buttonClick () {
 const initialState = {
   text: 'Hello Webpack'
 }
-function myApp (state = initialState, action) {
+function myApp(state = initialState, action) {
   switch (action.type) {
     case 'CHANGE_TEXT':
       return {
@@ -44,16 +44,16 @@ function myApp (state = initialState, action) {
 let store = createStore(myApp)
 
 class Hello extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick () {
+  handleClick() {
     this.props.actions.changeText()
   }
 
-  render () {
+  render() {
     return (
       <h1 onClick={this.handleClick}> {this.props.text} </h1>
     )
@@ -61,16 +61,16 @@ class Hello extends React.Component {
 }
 
 class Change extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick () {
+  handleClick() {
     this.props.actions.buttonClick()
   }
 
-  render () {
+  render() {
     return (
       <button onClick={this.handleClick}>change</button>
     )
@@ -79,12 +79,12 @@ class Change extends React.Component {
 
 class App extends React.Component {
 
-  constructor (props) {
+  constructor(props) {
     super(props)
   }
 
-  render () {
-    const {actions, text} = this.props
+  render() {
+    const { actions, text } = this.props
     return (
       <div>
         <div>Hello WebPack</div>
@@ -95,13 +95,13 @@ class App extends React.Component {
   }
 }
 
-function mapStateToProps (state, props) {
-  return {text: state.text}
+function mapStateToProps(state, props) {
+  return { text: state.text }
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators({changeText: changeText, buttonClick: buttonClick}, dispatch)
+    actions: bindActionCreators({ changeText: changeText, buttonClick: buttonClick }, dispatch)
   }
 }
 //const VisibleTodoList = connect(

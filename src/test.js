@@ -1,44 +1,18 @@
 /**
- *  Created by daiwenjuan on 2017/12/12 下午4:25.
+ *  Created by daiwenjuan on 2017/12/13 下午4:21.
  */
-import React from 'react'
+import React, { PureComponent } from 'react'
 import { render } from 'react-dom'
-import { connect, Provider } from 'react-redux'
-import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux'
+import { createStore } from 'redux'
+import reducers from './testPlugin/reducers'
+import APP from './testPlugin/containers/app'
+import { Provider } from 'react-redux'
+import './testPlugin/styles/index.module.less'
 
-import { createStore, applyMiddleware } from 'redux'
-import createHistory from 'history/createBrowserHistory'
-
-import { Link } from 'react-router-dom'
-import { Route, Switch } from 'react-router'
-
-const history = createHistory()
-
-const store = createStore(
-  routerReducer,
-  applyMiddleware(routerMiddleware(history)),
-)
-
-const ConnectedSwitch = connect(state => ({
-  location: state.location
-}))(Switch)
-
-const AppContainer = () => (
-  <ConnectedSwitch>
-    <Route exact path="/" component={() => (<h1>Home <Link to="/about">About</Link></h1>)}/>
-    <Route path="/about" component={() => (<h1>About <Link to="/">Home</Link></h1>)}/>
-  </ConnectedSwitch>
-)
-
-const App = connect(state => ({
-  location: state.location,
-}))(AppContainer)
-
+let store = createStore(reducers)
 render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <App />
-    </ConnectedRouter>
+    <APP/>
   </Provider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 )

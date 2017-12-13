@@ -61,3 +61,6 @@ http://blog.csdn.net/sinat_17775997/article/details/69218382
 
 webpack 3 打包实战
 https://github.com/fenivana/webpack-in-action
+
+部署到生产环境需要配置服务器
+http://www.jianshu.com/p/8d76debc0f49

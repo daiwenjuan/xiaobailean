@@ -4,7 +4,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
-import IndexPage from './index'
+// import IndexPage from './index'
+import IndexPage from './test'
 import './styles/app.less'
 
 const render = Component => {
