@@ -5,9 +5,15 @@ import React, { PureComponent } from 'react'
 import styles from './left.module.less'
 
 export default class Left extends PureComponent {
+
+  handleTest = () => {
+    let { test } = this.props.actions
+    test()
+  }
+
   render() {
     return <div className={styles['left-wrapper']}>
-      Left
+      <div onClick={this.handleTest}>LEFT</div>
     </div>
   }
 }

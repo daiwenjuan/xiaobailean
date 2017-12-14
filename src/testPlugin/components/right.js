@@ -6,8 +6,9 @@ import styles from './right.module.less'
 
 export default class Right extends PureComponent {
   render() {
+    let { text } = this.props
     return <div className={styles['right-wrapper']}>
-      Right
+      {text}
     </div>
   }
 }

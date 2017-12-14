@@ -58,7 +58,7 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: 'babel-loader'
       }, {
-        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2|jpeg)$/,
         use: ['file-loader?limit=1000&name=files/[md5:hash:base64:10].[ext]']
       },
       {

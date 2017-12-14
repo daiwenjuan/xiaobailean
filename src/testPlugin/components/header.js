@@ -7,7 +7,9 @@ import styles from './header.module.less'
 export default class Header extends PureComponent {
   render() {
     return <div className={styles['header-wrapper']}>
-      Header
+      <div className="header-content">
+        HEADER
+      </div>
     </div>
   }
 }

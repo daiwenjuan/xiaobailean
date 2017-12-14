@@ -3,11 +3,13 @@
  */
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import styles from './app.module.less'
 import Header from '../components/header'
 import Left from '../components/left'
 import Right from '../components/right'
 import Bottom from '../components/bottom'
+import { test } from '../actions/index'
 
 class App extends PureComponent {
 
@@ -15,20 +17,20 @@ class App extends PureComponent {
     return <div className={styles['app-wrapper']}>
       <Header className="header"/>
       <div className="content">
-        <Left className="left"/>
-        <Right className="right"/>
+        <Left className="left" {...this.props}/>
+        <Right className="right" {...this.props}/>
       </div>
       <Bottom className="bottom"/>
     </div>
   }
 }
 
-function mapStateToProps() {
-
+function mapStateToProps(state = {}) {
+  return { text: state.text }
 }
 
-function mapDispatchToProps() {
-
+function mapDispatchToProps(dispatch) {
+  return { actions: bindActionCreators({ test: test }, dispatch) }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
