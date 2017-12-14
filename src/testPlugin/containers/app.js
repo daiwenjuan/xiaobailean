@@ -4,6 +4,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import styles from './app.module.less'
 import Header from '../components/header'
 import Left from '../components/left'
@@ -15,12 +16,16 @@ class App extends PureComponent {
 
   render() {
     return <div className={styles['app-wrapper']}>
-      <Header className="header"/>
-      <div className="content">
-        <Left className="left" {...this.props}/>
-        <Right className="right" {...this.props}/>
-      </div>
-      <Bottom className="bottom"/>
+      <Router >
+        <div className="app-content">
+          <Header className="header"/>
+          <div className="content">
+            <Left className="left" {...this.props}/>
+            <Right className="right" {...this.props}/>
+          </div>
+          <Bottom className="bottom"/>
+        </div>
+      </Router>
     </div>
   }
 }

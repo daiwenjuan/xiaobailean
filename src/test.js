@@ -8,7 +8,6 @@ import reducers from './testPlugin/reducers'
 import APP from './testPlugin/containers/app'
 import { Provider } from 'react-redux'
 import './testPlugin/styles/index.module.less'
-
 let store = createStore(reducers)
 render(
   <Provider store={store}>
