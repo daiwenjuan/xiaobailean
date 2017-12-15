@@ -1,0 +1,14 @@
+.middle-warpper {
+  flex: 1;
+  :global {
+    .middle-content {
+      display: flex;
+      flex-direction: column;
+      .list-content {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+}

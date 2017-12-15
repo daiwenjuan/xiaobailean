@@ -4,12 +4,11 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import styles from './app.module.less'
-import Header from '../components/header'
-import Left from '../components/left'
-import Right from '../components/right'
-import Bottom from '../components/bottom'
+import Header from '../components/header/header'
+import Bottom from '../components/bottom/bottom'
+import Middle from '../components/middle/middle'
 import { test } from '../actions/index'
 
 class App extends PureComponent {
@@ -18,12 +17,9 @@ class App extends PureComponent {
     return <div className={styles['app-wrapper']}>
       <Router >
         <div className="app-content">
-          <Header className="header"/>
-          <div className="content">
-            <Left className="left" {...this.props}/>
-            <Right className="right" {...this.props}/>
-          </div>
-          <Bottom className="bottom"/>
+          <Header/>
+          <Middle/>
+          <Bottom/>
         </div>
       </Router>
     </div>

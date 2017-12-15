@@ -1,0 +1,20 @@
+.title-wrapper {
+  height: 50px;
+  flex-shrink: 0;
+  :global {
+    .title-content {
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      background-color: #E8E7E3;
+      align-items: center;
+      padding: 0 10px;
+      .title-item {
+        flex: 1;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
