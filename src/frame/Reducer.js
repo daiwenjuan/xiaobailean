@@ -1,19 +1,19 @@
 export default class Reducer {
 
-  constructor (id, initDefault) {
+  constructor(id, initDefault) {
     this._id = id
-    this._initDefault = initDefault
+    this._initDefault = initDefault || {}
     this._reducersMap = {}
     this._reducers = []
   }
 
-  get Id () {
+  get Id() {
     return this._id
   }
 
-  get exports () {
+  get exports() {
     return (state = this._initDefault, action) => {
-      let {type} = action
+      let { type } = action
       if (!!this._reducersMap[type]) {
         let handle = this._reducersMap[type]
         return handle(state, action)
@@ -22,7 +22,7 @@ export default class Reducer {
     }
   }
 
-  handleAction (actionkey, fnAction) {
+  handleAction(actionkey, fnAction) {
     this._reducersMap[actionkey] = fnAction
     this._reducers.push(fnAction)
   }

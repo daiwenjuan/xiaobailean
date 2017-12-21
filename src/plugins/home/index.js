@@ -10,7 +10,7 @@ const plugin = new Plugin(key.ID)
 plugin.reducer = require('./home.reducer')
 
 plugin.router = {
-  path: '/home',
+  path: '/',
   exact: true,
   component: createComponent(Home)
 }

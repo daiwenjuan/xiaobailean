@@ -6,7 +6,7 @@ import styles from './home.module.less'
 
 export default class Home extends PureComponent {
 
-  render () {
+  render() {
     return (<div className={styles['home-wrapper']}>
       <div className="home-content">
         <div className="header">HEADE</div>

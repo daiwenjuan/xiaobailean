@@ -10,7 +10,7 @@ const nodeEnv = process.env.NODE_ENV || 'development'
 module.exports = {
   context: __dirname,//这是entry配置项的根目录（绝对路径）
   entry: {
-    index: './src/test.js',
+    index: './src/entry.js',
     vendor: ['react', 'react-dom']
   },
   output: {

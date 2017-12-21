@@ -4,22 +4,41 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import styles from './app.module.less'
-import Header from '../components/header/header'
-import Bottom from '../components/bottom/bottom'
-import Middle from '../components/middle/middle'
 import { test } from '../actions/index'
-
+const NoMatch = () => (
+  <div>
+    <h2>Page1</h2>
+  </div>
+)
+const About = () => {
+  return <div>
+    <h2>Page2</h2>
+  </div>
+}
+const Home = () => {
+  return <div>
+    <h2>Home</h2>
+  </div>
+}
 class App extends PureComponent {
 
   render() {
     return <div className={styles['app-wrapper']}>
-      <Router >
-        <div className="app-content">
-          <Header/>
-          <Middle/>
-          <Bottom/>
+      <Router>
+        <div>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/page1">Page1</Link></li>
+            <li><Link to="/page2">Page2</Link></li>
+          </ul>
+
+          <hr/>
+
+          <Route exact path="/" component={Home}/>
+          <Route path="/page1" component={NoMatch}/>
+          <Route path="/page2" component={About}/>
         </div>
       </Router>
     </div>
