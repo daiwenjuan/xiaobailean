@@ -9,13 +9,15 @@ const nodeEnv = process.env.NODE_ENV || 'development'
 
 module.exports = {
   context: __dirname,//这是entry配置项的根目录（绝对路径）
-  entry: {
-    index: './src/entry.js',
-    vendor: ['react', 'react-dom']
-  },
+  entry: [
+    './src/entry.js',
+    'react',
+    'react-dom'
+  ],
   output: {
     filename: '[name].[hash].js', //防止缓存
     path: path.join(__dirname, 'build'),
+    publicPath: '/'
   },
   plugins: [
     new CleanWebpackPlugin(['build']),//清除打包的文件

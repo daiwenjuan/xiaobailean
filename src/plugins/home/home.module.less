@@ -1,28 +1,32 @@
 .home-wrapper {
   :global {
     .home-content {
-      display        : flex;
-      flex-direction : column;
-      height         : 100%;
-      margin         : 16px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      margin: 16px;
       .header {
-        height      : 50px;
-        flex-shrink : 0;
+        height: 50px;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: space-between;
       }
       .middle {
-        flex            : 1;
-        display         : flex;
-        justify-content : center;
-        align-items     : center;
-        margin          : 20px 0;
+        min-width: 1000px;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
         .content {
-          width  : 80%;
-          border : solid 1px #0000FF;
+          border: solid 1px #0000FF;
+          margin: 0 auto;
+          width: 895px
         }
       }
       .bottom {
-        height      : 50px;
-        flex-shrink : 0;
+        height: 50px;
+        flex-shrink: 0;
       }
     }
   }
