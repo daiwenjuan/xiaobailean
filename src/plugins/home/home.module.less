@@ -1,27 +1,43 @@
 .home-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   :global {
     .home-content {
+      max-width: 1000px;
       display: flex;
       flex-direction: column;
-      height: 100%;
-      margin: 16px;
+      margin: 0 auto;
       .header {
         height: 50px;
         flex-shrink: 0;
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        margin: 10px 50px;
+        .logo {
+          font-size: 20px;
+          color: #ff9968;
+        }
+        .login {
+          width: 50px;
+          height: 30px;
+          background-color: #ffffff;
+          border-radius: 20px;
+          border: solid 1px #ff9968;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #333;
+        }
       }
       .middle {
-        min-width: 1000px;
         flex: 1;
         display: flex;
         justify-content: center;
-        align-items: center;
-        margin: 20px 0;
-        .content {
-          border: solid 1px #0000FF;
-          margin: 0 auto;
-          width: 895px
+        .search {
+          width: 200px;
+          height: 50px;
         }
       }
       .bottom {

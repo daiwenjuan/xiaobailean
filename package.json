@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/daiwenjuan/xiaobailean#readme",
   "dependencies": {
-    "antd": "^2.13.7",
+    "antd": "^2.13.11",
     "babel-runtime": "^6.26.0",
     "bundle-loader": "^0.5.5",
     "clean-webpack-plugin": "^0.1.17",
