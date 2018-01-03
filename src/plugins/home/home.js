@@ -3,7 +3,7 @@
  */
 import React, { PureComponent }from 'react'
 import styles from './home.module.less'
-import { Input } from 'antd'
+import { Input, Button } from 'antd'
 const Search = Input.Search
 export default class Home extends PureComponent {
 
@@ -16,7 +16,12 @@ export default class Home extends PureComponent {
         </div>
         <div className="middle">
           <div className="search">
-            <Search placeholder="input search text" enterbutton="Search" size="large"/>
+            <Search
+              onSearch={value => console.log(value)}
+              style={{ width: 200, height: 45 }}
+              size="large"
+            />
+            <Button className='search-btn' type="primary">搜索</Button>
           </div>
         </div>
         <div className="bottom">BOTTOM</div>
