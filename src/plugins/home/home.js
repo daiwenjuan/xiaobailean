@@ -5,15 +5,31 @@ import React, { PureComponent }from 'react'
 import styles from './home.module.less'
 import { Input, Button } from 'antd'
 const Search = Input.Search
+import { request } from '../../frame/fetch'
 export default class Home extends PureComponent {
   constructor(props) {
     super(props)
-    this.contents = ['aaa', 'bbb', 'ccc', 'dddd']
+    this.state = {
+      users: []
+    }
+  }
+
+  componentWillMount() {
+    request().then(result => {
+      this.setState({
+        users: result.users
+      })
+    })
+  }
+
+  handleLogin = () => {
+
   }
 
   renderList() {
-    return this.contents.map((line, key) => {
-      return <div key={key} className="item">{line}</div>
+    let { users } = this.state
+    return users.map((line, key) => {
+      return <div key={key} className="item">{line.name}</div>
     })
   }
 
@@ -22,7 +38,7 @@ export default class Home extends PureComponent {
       <div className="home-content">
         <div className="header">
           <span className="logo">LOGO</span>
-          <span className='login'>登录</span>
+          <span className='login' onClick={this.handleLogin}>登录</span>
         </div>
         <div className="middle">
           <div className="title">LOGO</div>
