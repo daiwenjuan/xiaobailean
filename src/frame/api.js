@@ -13,6 +13,10 @@ class API {
   getContext() {
     return this.ctx
   }
+
+  dispatch(action) {
+    return this.ctx.getStore().dispatch(action)
+  }
 }
 
 const api = new API()

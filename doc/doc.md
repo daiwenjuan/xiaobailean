@@ -64,3 +64,6 @@ https://github.com/fenivana/webpack-in-action
 
 部署到生产环境需要配置服务器
 http://www.jianshu.com/p/8d76debc0f49
+redux一些中间件
+http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_two_async_operations.html
+http://blog.csdn.net/u011043843/article/details/52326203

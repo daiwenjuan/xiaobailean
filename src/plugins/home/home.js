@@ -5,29 +5,33 @@ import React, { PureComponent }from 'react'
 import styles from './home.module.less'
 import { Input, Button } from 'antd'
 const Search = Input.Search
-import { request } from '../../frame/fetch'
+import EnhanceConnect from '../../frame/EnhanceConnect'
+import { getList } from './home.action'
+import key from './key'
+import api from '../../frame/api'
+
+@EnhanceConnect((state) => {
+  return {
+    users: state[key.ID].users,
+  }
+}, { getList })
 export default class Home extends PureComponent {
   constructor(props) {
     super(props)
-    this.state = {
-      users: []
-    }
   }
 
   componentWillMount() {
-    request().then(result => {
-      this.setState({
-        users: result.users
-      })
-    })
+    let { getList } = this.props
+    getList()
   }
 
   handleLogin = () => {
-
+    debugger
+    api.dispatch(getList())
   }
 
   renderList() {
-    let { users } = this.state
+    let { users } = this.props
     return users.map((line, key) => {
       return <div key={key} className="item">{line.name}</div>
     })

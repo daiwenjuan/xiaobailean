@@ -3,8 +3,9 @@
  */
 import React, { PureComponent } from 'react'
 import { Provider } from 'react-redux'
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import promiseMiddleware from 'redux-promise'
 import Context from './frame/Context'
 import api from './frame/api'
 const context = new Context()
@@ -22,7 +23,7 @@ plugins.map(plugin => {
 })
 
 const reducers = combineReducers({ ..._reducers })
-let store = createStore(reducers)
+let store = createStore(reducers, applyMiddleware(promiseMiddleware))
 context.setStore(store)
 api.initialize(context)
 //<Switch>会遍历自身的子元素（即路由）并对第一个匹配当前路径的元素进行渲染。
