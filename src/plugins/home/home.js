@@ -26,14 +26,22 @@ export default class Home extends PureComponent {
   }
 
   handleLogin = () => {
-    debugger
     api.dispatch(getList())
+  }
+
+  handleClick(line) {
+    let { history } = this.props
+    switch (line.name) {
+      case 'javascript+dom编程艺术':
+        history.push('/jsdom')
+        break
+    }
   }
 
   renderList() {
     let { users } = this.props
     return users.map((line, key) => {
-      return <div key={key} className="item">{line.name}</div>
+      return <div key={key} className="item" onClick={this.handleClick.bind(this, line)}>{line.name}</div>
     })
   }
 
