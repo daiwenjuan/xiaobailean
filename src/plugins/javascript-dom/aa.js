@@ -8,8 +8,14 @@ import wrapper from './wrapper'
   type: 'aa'
 })
 export default class AA extends Component {
+  handleOnClick = () => {
+    let {test} = this.props
+    test('AA')
+  }
+
   render () {
-    return <div>
+    console.log(this.props)
+    return <div onClick={::this.handleOnClick}>
       aa
     </div>
   }

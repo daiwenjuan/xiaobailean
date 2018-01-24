@@ -4,6 +4,7 @@
 import React, { Component } from 'react'
 
 export default function (props) {
+  this.data = []
   let {template, value, elements} = props
   let showElement = elements.filter(elem => {
     let type = elem().props.compDes.type
@@ -14,10 +15,11 @@ export default function (props) {
     }
   })
   //{title: '标题'}
+  console.log('=====showElement======')
   console.log(showElement)
   return <div>
     {showElement.map((MComponent, key) => {
-      return <MComponent key={key} {...props} value={value}/>
+      return <MComponent key={key} {...props} value={'sdfsdf'}/>
     })}
   </div>
 }

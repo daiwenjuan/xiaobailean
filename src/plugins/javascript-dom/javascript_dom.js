@@ -12,11 +12,16 @@ export default class JavaScriptDom extends Component {
     super(props)
   }
 
+  test (data) {
+    console.log('====test=======')
+    console.log(data)
+  }
+
   render () {
-    let data = [{type: 'aa', name: 'title'}, {type: 'b', name: 'title'}]
+    let data = [{type: 'aa', name: 'title'}, {type: 'b', name: 'remark'}]
     return (
       <div className={styles['wrapper']}>
-        <Dymic template={data} value={{title: '标题'}} elements={elements}/>
+        <Dymic template={data} value={{title: '标题'}} elements={elements} test={this.test}/>
       </div>
     )
   }
