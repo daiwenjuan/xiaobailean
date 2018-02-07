@@ -6,7 +6,9 @@ import ReactDOM from 'react-dom'
 import api from './api'
 let Singleton = require('./Singleton')
 let signleton = Singleton.getInstance()
+signleton.mount(require('./home'))
 signleton.mount(require('./plugin01'))
+signleton.mount(require('./plugin02'))
 
 let plugins = signleton.getPlugins()
 let plugin = plugins[0]

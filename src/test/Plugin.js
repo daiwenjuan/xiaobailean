@@ -6,6 +6,7 @@ class Plugin {
     this.id = id
     this.component = null
     this.serviceManager = {}
+    this.menus = []
   }
 
   getId() {
@@ -31,6 +32,14 @@ class Plugin {
 
   getServiceManager() {
     return this.serviceManager
+  }
+
+  registerMenu(menus) {
+    this.menus = this.menus.concat(menus)
+  }
+
+  getMenus() {
+    return this.menus
   }
 }
 module.exports = Plugin

@@ -3,13 +3,22 @@
  */
 import React, { PureComponent } from 'react'
 import api from './api'
-export default class Plugin02 extends PureComponent {
+import Plugin from './Plugin'
+let id = '@plugin02'
+class Plugin02 extends PureComponent {
 
   handleOnclick() {
-    let aa = api.invoiceService('@aaa', 'aa')
+    api.invoiceService('@aaa', 'aa').then(result => {
+      console.log(result)
+    })
   }
 
   render() {
     return <div onClick={this.handleOnclick}>模块二</div>
   }
 }
+let plugin = new Plugin(id)
+plugin.registerMenu([{ id, label: '模块二' }])
+plugin.setComponent(Plugin02)
+module.exports = plugin
+
