@@ -6,6 +6,7 @@ import api from './api'
 import Plugin from './Plugin'
 let id = '@home'
 let plugin = new Plugin(id)
+import Modal from './Modal'
 class Home extends PureComponent {
   constructor() {
     super()
@@ -16,11 +17,14 @@ class Home extends PureComponent {
     })
   }
 
+  handleModal = () => {
+
+  }
+
   render() {
-    return <div>
-      {this.menus.map((line, key) => {
-        return <div key={key}>{line.label}</div>
-      })}
+    return <div onClick={this.handleModal}>
+      <div style={{ backgroundColor: 'lightblue', width: 100, height: 100, overflow: 'hidden' }}>HOME</div>
+      <Modal/>
     </div>
   }
 }

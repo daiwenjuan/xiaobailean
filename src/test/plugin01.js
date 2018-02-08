@@ -13,7 +13,6 @@ class Plugin01 extends PureComponent {
     // this.msg.on('@aaa', function (args) {
     //   console.log('=====点击了=====' + args)
     // })
-
   }
 
   handleOnClick = () => {
