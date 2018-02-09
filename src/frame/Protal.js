@@ -1,5 +1,5 @@
 /**
- *  Created by daiwenjuan on 2018/2/8 下午12:18.
+ *  Created by daiwenjuan on 2018/2/9 下午2:26.
  */
 import styles from './protal.module.less'
 import React from 'react'
@@ -16,7 +16,6 @@ class Protal extends React.Component {
   componentDidMount() {
     const doc = window.document
     this.node = document.createElement('div')
-    this.node.setAttribute('id', 'dialog-parent')
     doc.body.appendChild(this.node)
     this.renderProtal()
   }
