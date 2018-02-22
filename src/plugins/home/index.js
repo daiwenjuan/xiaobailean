@@ -14,4 +14,9 @@ plugin.router = {
   exact: true,
   component: createComponent(Home)
 }
+
+plugin.registerService('@home', function () {
+  // 一般用于网络请求
+  return 'home模块数据'
+})
 module.exports = plugin

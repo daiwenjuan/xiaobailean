@@ -11,7 +11,7 @@ import api from './frame/api'
 const context = new Context()
 context.mount(require('./plugins/account'))
 context.mount(require('./plugins/home'))
-context.mount(require('./plugins/javascript-dom'))
+context.mount(require('./plugins/demo01'))
 
 const plugins = context.getPlugins()
 const _reducers = {}

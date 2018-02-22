@@ -21,53 +21,19 @@ export default class Home extends PureComponent {
   }
 
   componentWillMount() {
-    let { getList } = this.props
-    getList()
+    // let { getList } = this.props
+    // getList()
   }
 
-  handleLogin = () => {
-    api.dispatch(getList())
-  }
-
-  handleClick(line) {
+  handleClick() {
     let { history } = this.props
-    switch (line.name) {
-      case 'javascript+dom编程艺术':
-        history.push('/jsdom')
-        break
-    }
-  }
-
-  renderList() {
-    let { users } = this.props
-    return users.map((line, key) => {
-      return <div key={key} className="item" onClick={this.handleClick.bind(this, line)}>{line.name}</div>
-    })
+    history.push('/demo01')
   }
 
   render() {
-    return (<div className={styles['home-wrapper']}>
-      <div className="home-content">
-        <div className="header">
-          <span className="logo">LOGO</span>
-          <span className='login' onClick={this.handleLogin}>登录</span>
-        </div>
-        <div className="middle">
-          <div className="title">LOGO</div>
-          <div className="search">
-            <Search
-              onSearch={value => console.log(value)}
-              style={{ width: 200, height: 45 }}
-              size="large"
-            />
-            <Button className='search-btn' type="primary">搜索</Button>
-          </div>
-          <div className="content">
-            {this.renderList()}
-          </div>
-        </div>
-        <div className="bottom">BOTTOM</div>
-      </div>
+    return (<div>
+      <div style={{ marginLeft: 50, marginTop: 10 }}>HOME</div>
+      <div style={{ marginLeft: 50, marginTop: 20 }} onClick={::this.handleClick}>跳转到模块一</div>
     </div>)
   }
 }

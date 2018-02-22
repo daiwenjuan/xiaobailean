@@ -4,13 +4,16 @@
 import Plugin from '../../frame/Plugin'
 import createComponent from '../../frame/EnhanceComponent'
 import key from './key'
-import JavaScriptDom from 'bundle-loader?lazy!./javascript_dom'
+import Demo01 from 'bundle-loader?lazy!./demo01'
 
 const plugin = new Plugin(key.ID)
-plugin.reducer = require('./javascript_dom.reducer')
+plugin.reducer = require('./demo01.reducer.js')
 
 plugin.router = {
-  path: '/jsdom',
-  component: createComponent(JavaScriptDom)
+  path: '/demo01',
+  component: createComponent(Demo01)
 }
+plugin.registerService('@demo01:getdata', function (data) {
+  return data
+})
 module.exports = plugin
