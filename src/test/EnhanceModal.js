@@ -37,6 +37,10 @@ const SVG_DELETE = require('../frame/images/delete.svg')
 // }
 
 const EnhanceModal = (params) => (WrappedComponent) => class extends Component {
+  constructor(...props) {
+    super(...props)
+  }
+
   render() {
     let { title, footer = [], cancleText, okText } = params
     return (
@@ -50,7 +54,7 @@ const EnhanceModal = (params) => (WrappedComponent) => class extends Component {
               </div>
             </div>
             <div className='content'>
-              <WrappedComponent/>
+              <WrappedComponent {...this.props}/>
             </div>
             <div className="footer">
               <div className="footer-left"/>

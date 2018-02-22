@@ -4,7 +4,7 @@
 import React, { Component } from 'react'
 import EnhanceModal from './EnhanceModal'
 
-@EnhanceModal('传过来的数据')
+@EnhanceModal({ title: 'test' })
 export default class TestModal extends Component {
   constructor(props) {
     super(props)
