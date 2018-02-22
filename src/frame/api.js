@@ -17,6 +17,27 @@ class API {
   dispatch(action) {
     return this.ctx.getStore().dispatch(action)
   }
+
+  mPromise() {
+    let promise = new Promise((resolve, reject) => {
+      this.resolve = resolve
+      this.reject = reject
+    })
+    return { promise, resolve: this.resolve, reject: this.reject }
+  }
+
+  invoiceService(key, ...args) {
+    let plugins = this.ctx.getPlugins()
+    let { promise, resolve } = this.mPromise()
+    plugins.forEach(plugin => {
+      let serviceManager = plugin.getServiceManager()
+      if (serviceManager && serviceManager[key]) {
+        let result = serviceManager[key].apply(this, args)
+        resolve(result)
+      }
+    })
+    return promise
+  }
 }
 
 const api = new API()
