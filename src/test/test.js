@@ -7,3 +7,8 @@ function test() {
   msg.on('@aaa')
 }
 test()
+
+module.exports = function two() {
+  return 2
+}
+

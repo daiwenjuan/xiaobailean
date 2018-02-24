@@ -7,6 +7,7 @@ import Plugin from './Plugin'
 let id = '@home'
 let plugin = new Plugin(id)
 import TestModal from './testModal'
+import * as bar from './test'
 
 class Home extends PureComponent {
   constructor() {
@@ -16,6 +17,8 @@ class Home extends PureComponent {
     plugins.map(plugin => {
       this.menus = this.menus.concat(plugin.getMenus())
     })
+    console.log('=====Home========')
+    console.log(bar)
   }
 
   handleModal = () => {
@@ -25,7 +28,6 @@ class Home extends PureComponent {
   render() {
     return <div onClick={this.handleModal}>
       <div style={{ backgroundColor: 'lightblue', width: 100, height: 100, overflow: 'hidden' }}>HOME</div>
-      <TestModal/>
     </div>
   }
 }
