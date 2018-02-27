@@ -44,32 +44,30 @@ const EnhanceModal = (params) => (WrappedComponent) => class extends Component {
   render() {
     let { title, footer = [], cancleText, okText } = params
     return (
-      <Protal>
-        <div className={styles['enhance-modal-wrapper']}>
-          <div className="modal-content">
-            <div className="header">
-              <div className="title">{title ? title : '标题'}</div>
-              <div className="delete">
-                <img src={SVG_DELETE}/>
-              </div>
+      <div className={styles['enhance-modal-wrapper']}>
+        <div className="modal-content">
+          <div className="header">
+            <div className="title">{title ? title : '标题'}</div>
+            <div className="delete">
+              <img src={SVG_DELETE}/>
             </div>
-            <div className='content'>
-              <WrappedComponent {...this.props}/>
-            </div>
-            <div className="footer">
-              <div className="footer-left"/>
-              <div className="footer-right">
-                {footer.length > 0 ? footer.map(item => {
-                  return <Button>{item}</Button>
-                }) : <div>
-                  <Button className='btn mr_10'>{cancleText ? cancleText : '取消'}</Button>
-                  <Button className='btn btn-ok'>{okText ? okText : '确定'}</Button>
-                </div>}
-              </div>
+          </div>
+          <div className='content'>
+            <WrappedComponent {...this.props}/>
+          </div>
+          <div className="footer">
+            <div className="footer-left"/>
+            <div className="footer-right">
+              {footer.length > 0 ? footer.map(item => {
+                return <Button>{item}</Button>
+              }) : <div>
+                <Button className='btn mr_10'>{cancleText ? cancleText : '取消'}</Button>
+                <Button className='btn btn-ok'>{okText ? okText : '确定'}</Button>
+              </div>}
             </div>
           </div>
         </div>
-      </Protal>
+      </div>
     )
   }
 }

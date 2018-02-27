@@ -28,6 +28,7 @@ class Home extends PureComponent {
   render() {
     return <div onClick={this.handleModal}>
       <div style={{ backgroundColor: 'lightblue', width: 100, height: 100, overflow: 'hidden' }}>HOME</div>
+      <TestModal aa={'dsfdsfds'}/>
     </div>
   }
 }
